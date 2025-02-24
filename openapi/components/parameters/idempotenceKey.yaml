@@ -1,0 +1,5 @@
+name: Idempotence-Key
+in: header
+required: true
+schema:
+  type: string

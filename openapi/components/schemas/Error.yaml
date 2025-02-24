@@ -1,0 +1,13 @@
+type: object
+properties:
+  status:
+    type: integer
+    minimum: 100
+    maximum: 600
+    description: The HTTP status code.
+  error:
+    type: string
+    description: >-
+      A short, human-readable summary of the problem type. It SHOULD NOT change
+      from occurrence to occurrence of the problem, except for purposes of
+      localization.

@@ -1,0 +1,15 @@
+{
+  "name": "change_me-openapi",
+  "version": "1.0.0",
+  "dependencies": {
+    "@redocly/cli": "^1.30.0",
+    "@vality/openapi-generator-cli": "2.0.0",
+    "json-merge-patch": "^1.0.0"
+  },
+  "scripts": {
+    "start": "redocly preview-docs",
+    "build": "redocly bundle openapi/openapi.yaml -o web_deploy/openapi.yaml && openapi bundle -o web_deploy/openapi.json",
+    "validate": "redocly build-docs lint",
+    "codegen": "vality-openapi generate ./web_deploy/openapi.json"
+  }
+}

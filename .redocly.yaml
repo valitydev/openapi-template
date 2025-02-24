@@ -1,0 +1,18 @@
+# See https://docs.redoc.ly/cli/configuration/ for more information.
+apis:
+  core:
+    root: "openapi/openapi.yaml"
+plugins:
+  - './plugins/local.js'
+extends:
+  - recommended
+rules:
+  tag-description: off
+preprocessors:
+  local/merge-schemas: on
+theme:
+  openapi:
+    showConsole: true
+    layout: "three-panel"
+    routingStrategy: browser
+    htmlTemplate: ./web/index.html

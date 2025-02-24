@@ -1,0 +1,4 @@
+name: continuationToken
+in: query
+schema:
+  type: string
