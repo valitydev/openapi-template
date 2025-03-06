@@ -1,0 +1,10 @@
+description: >
+  Для аутентификации вызовов мы используем [JWT](https://jwt.io).
+  Cоответствующий ключ передается в заголовке.
+
+  ```shell
+    Authorization: Bearer {TOKENIZATION|PRIVATE_JWT}
+  ```
+type: http
+scheme: bearer
+bearerFormat: JWT

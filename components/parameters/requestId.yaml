@@ -1,0 +1,7 @@
+name: X-Request-ID
+in: header
+description: Уникальный идентификатор запроса к системе
+required: true
+schema:
+  type: string
+  format: uuid

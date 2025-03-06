@@ -1,0 +1,5 @@
+description: Несанкционированный доступ, использовались неверные учетные данные.
+content:
+  application/json:
+    schema:
+      $ref: ../schemas/Error.yaml
