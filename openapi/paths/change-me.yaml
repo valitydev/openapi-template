@@ -1,0 +1,48 @@
+get:
+  summary: Get all useful data
+  operationId: getAllUsefulData
+  tags:
+    - change-me
+  parameters:
+    - $ref: ../components/parameters/requestId.yaml
+  responses:
+    '200':
+      description: Useful data
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: ../components/schemas/UsefulDataResponse.yaml
+    '400':
+      $ref: ../components/responses/BadRequest.yaml
+    '401':
+      $ref: ../components/responses/Unauthorized.yaml
+    '403':
+      $ref: ../components/responses/Forbidden.yaml
+
+post:
+  summary: Create useful data
+  description: |
+    Create useful data
+  operationId: createUsefulData
+  tags:
+    - change-me
+  parameters:
+    - $ref: ../components/parameters/requestId.yaml
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref:  ../components/schemas/UsefulDataResponse.yaml
+  responses:
+    '201':
+      description: Useful data created
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/UsefulDataResponse.yaml
+    '401':
+      $ref: ../components/responses/Unauthorized.yaml
+    '403':
+      $ref: ../components/responses/Forbidden.yaml
