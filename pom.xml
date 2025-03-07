@@ -29,7 +29,7 @@
     <properties>
         <default.package>com.vality.openapi.change_me</default.package>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <slf4j-version>2.0.7</slf4j-version>
+        <slf4j-version>2.0.17</slf4j-version>
         <junit-version>4.12</junit-version>
         <servlet-api-version>2.5</servlet-api-version>
         <jackson-version>2.11.2</jackson-version>
