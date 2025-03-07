@@ -1,1 +1,1 @@
-<API_NAME> API
+--api-name API

@@ -1,4 +1,4 @@
-# <API_NAME> API
+# --api-name API
 
 > Based on [Vality OpenAPI Template](https://github.com/valitydev/openapi-template) and uses [Redocly](https://redocly.com/) for documentation generation.
 
@@ -9,8 +9,8 @@
 
 Replace all references in the project:
 
-- `<API_NAME>` - API name (eg: `Dashboard`)
-- `__swag-template` - NPM package name (eg: `swag-dashboard`)
+- `--api-name` - API name (eg: `Dashboard`)
+- `--swag-template` - NPM package name (eg: `swag-dashboard`)
 
 <!-- Delete up to here after preparing the repository -->
 <!-- ---------------------------------------------------------- -->
