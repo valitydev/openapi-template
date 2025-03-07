@@ -4,6 +4,12 @@ get:
   tags:
     - change-me
   parameters:
+    - name: id
+      in: path
+      required: true
+      description: The unique identifier of the useful data
+      schema:
+        type: string
     - $ref: ../components/parameters/requestId.yaml
   responses:
     "200":
@@ -26,6 +32,12 @@ put:
   tags:
     - change-me
   parameters:
+    - name: id
+      in: path
+      required: true
+      description: The unique identifier of the useful data
+      schema:
+        type: string
     - $ref: ../components/parameters/requestId.yaml
   requestBody:
     content:
@@ -55,6 +67,12 @@ delete:
   tags:
     - change-me
   parameters:
+    - name: id
+      in: path
+      required: true
+      description: The unique identifier of the useful data
+      schema:
+        type: string
     - $ref: ../components/parameters/requestId.yaml
   responses:
     "204":
