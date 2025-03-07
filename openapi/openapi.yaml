@@ -1,15 +1,15 @@
 openapi: 3.0.0
 info:
-  version: 0.0.1
+  version: 1.0.0
   title: ChangeMe dashboard API
   description:
-    $ref: './docs/api.md'
+    $ref: "./docs/api.md"
   termsOfService: https://vality.dev/terms-of-use/
   license:
     name: Apache 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0.html
 servers:
-  - url: 'https://{subdomain}.vality.dev/{version}'
+  - url: "https://{subdomain}.vality.dev/{version}"
     variables:
       subdomain:
         default: api
@@ -20,11 +20,11 @@ servers:
 security:
   - bearer: []
 paths:
-  '/change_me':
-    $ref: './paths/change-me.yaml'
-  '/change_me/{id}':
-    $ref: './paths/change-me@{id}.yaml'
+  "/change_me":
+    $ref: "./paths/change-me.yaml"
+  "/change_me/{id}":
+    $ref: "./paths/change-me@{id}.yaml"
 components:
   securitySchemes:
     bearer:
-      $ref: './components/security-schemes/Bearer.yaml'
+      $ref: "./components/security-schemes/Bearer.yaml"

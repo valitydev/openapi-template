@@ -1,15 +1,20 @@
 {
-  "name": "change_me-openapi",
+  "name": "@vality/swag-template",
   "version": "1.0.0",
-  "dependencies": {
-    "@redocly/cli": "^1.30.0",
-    "@vality/openapi-generator-cli": "2.0.0",
-    "json-merge-patch": "^1.0.0"
-  },
+  "license": "Apache-2.0",
   "scripts": {
     "start": "redocly preview-docs",
-    "build": "redocly bundle openapi/openapi.yaml -o web_deploy/openapi.yaml && openapi bundle -o web_deploy/openapi.json",
-    "validate": "redocly build-docs lint",
-    "codegen": "vality-openapi generate ./web_deploy/openapi.json"
+    "validate": "redocly lint",
+    "bundle:yaml": "redocly bundle openapi/openapi.yaml -o web_deploy/openapi",
+    "bundle:json": "npm run bundle:yaml -- --ext json",
+    "build": "npm run bundle:yaml && npm run bundle:json",
+    "build-docs": "redocly build-docs -o web_deploy/index.html",
+    "build-web": "npm run build && npm run build-docs",
+    "build-ng-lib": "vality-openapi generate ./web_deploy/openapi.json"
+  },
+  "devDependencies": {
+    "@redocly/cli": "^1.33.0",
+    "@vality/openapi-generator-cli": "^3.0.2",
+    "@vality/redocly-utils": "^0.2.0"
   }
 }
