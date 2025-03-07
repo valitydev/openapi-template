@@ -229,4 +229,5 @@ fabric.properties
 # Frontend
 /lib
 /vality-openapi
+/web_deploy
 openapitools.json
