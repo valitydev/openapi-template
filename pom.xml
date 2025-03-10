@@ -10,11 +10,11 @@
         <version>2.0.3</version>
     </parent>
 
-    <artifactId>openapi-change_me</artifactId>
+    <artifactId>--openapi-template</artifactId>
     <version>1.0.0</version>
     <packaging>jar</packaging>
 
-    <name>change_me OpenAPI</name>
+    <name>--api-name API</name>
     <description>Generates jar artifact containing compiled openapi classes based on generated openapi yaml files
     </description>
 
@@ -22,12 +22,12 @@
         <repository>
             <id>github</id>
             <name>GitHub vality Apache Maven Packages</name>
-            <url>https://maven.pkg.github.com/vality/change_me</url>
+            <url>https://maven.pkg.github.com/vality/--openapi-template</url>
         </repository>
     </distributionManagement>
 
     <properties>
-        <default.package>com.vality.openapi.change_me</default.package>
+        <default.package>com.vality.openapi.--openapi-template</default.package>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <slf4j-version>2.0.7</slf4j-version>
         <junit-version>4.12</junit-version>

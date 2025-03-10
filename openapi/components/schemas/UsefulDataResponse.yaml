@@ -1,0 +1,24 @@
+type: object
+properties:
+  id:
+    type: string
+    description: The unique identifier for the useful data.
+  name:
+    type: string
+    description: The name of the useful data.
+  description:
+    type: string
+    description: A detailed description of the useful data.
+  createdAt:
+    type: string
+    format: date-time
+    description: The date and time when the useful data was created.
+  updatedAt:
+    type: string
+    format: date-time
+    description: The date and time when the useful data was last updated.
+required:
+  - id
+  - name
+  - createdAt
+  - updatedAt
