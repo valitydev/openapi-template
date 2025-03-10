@@ -10,10 +10,10 @@
 
 ## Preparation
 
-Replace all references in the project:
-
-- `--api-name` - API name (eg: `Dashboard`)
-- `--openapi-template` - NPM and Maven package name (eg: `swag-dashboard`)
+1. Replace all references in the project:
+   - `--api-name` - API name (eg: `Dashboard`)
+   - `--openapi-template` - NPM and Maven package name (eg: `swag-dashboard`)
+1. Configure GitHub Pages by setting the source to the `gh-pages` branch in the repository settings on GitHub.
 
 <!-- Delete up to here after preparing the repository -->
 <!-- ---------------------------------------------------------- -->
