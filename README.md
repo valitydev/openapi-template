@@ -10,7 +10,7 @@
 Replace all references in the project:
 
 - `--api-name` - API name (eg: `Dashboard`)
-- `--swag-template` - NPM package name (eg: `swag-dashboard`)
+- `--openapi-template` - NPM and Maven package name (eg: `swag-dashboard`)
 
 <!-- Delete up to here after preparing the repository -->
 <!-- ---------------------------------------------------------- -->
