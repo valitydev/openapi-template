@@ -1,0 +1,10 @@
+type: object
+properties:
+  name:
+    type: string
+    description: The name of the useful data.
+  description:
+    type: string
+    description: A detailed description of the useful data.
+required:
+  - name

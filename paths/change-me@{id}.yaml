@@ -4,21 +4,27 @@ get:
   tags:
     - change-me
   parameters:
+    - name: id
+      in: path
+      required: true
+      description: The unique identifier of the useful data
+      schema:
+        type: string
     - $ref: ../components/parameters/requestId.yaml
   responses:
-    '200':
+    "200":
       description: Useful data
       content:
         application/json:
           schema:
             $ref: ../components/schemas/UsefulDataResponse.yaml
-    '400':
+    "400":
       $ref: ../components/responses/BadRequest.yaml
-    '401':
+    "401":
       $ref: ../components/responses/Unauthorized.yaml
-    '403':
+    "403":
       $ref: ../components/responses/Forbidden.yaml
-    '404':
+    "404":
       description: Data not found
 put:
   summary: Update useful data
@@ -26,6 +32,12 @@ put:
   tags:
     - change-me
   parameters:
+    - name: id
+      in: path
+      required: true
+      description: The unique identifier of the useful data
+      schema:
+        type: string
     - $ref: ../components/parameters/requestId.yaml
   requestBody:
     content:
@@ -33,21 +45,21 @@ put:
         schema:
           $ref: ../components/schemas/UsefulData/UsefulDataChangeBody.yaml
   responses:
-    '200':
+    "200":
       description: UsefulData updated
       content:
         application/json:
           schema:
             $ref: ../components/schemas/UsefulDataResponse.yaml
-    '400':
+    "400":
       $ref: ../components/responses/BadRequest.yaml
-    '401':
+    "401":
       $ref: ../components/responses/Unauthorized.yaml
-    '403':
+    "403":
       $ref: ../components/responses/Forbidden.yaml
-    '404':
-      description: Шаблон не найден
-    '409':
+    "404":
+      description: Template not found
+    "409":
       $ref: ../components/responses/Conflict.yaml
 delete:
   summary: Delete useful data
@@ -55,11 +67,17 @@ delete:
   tags:
     - change-me
   parameters:
+    - name: id
+      in: path
+      required: true
+      description: The unique identifier of the useful data
+      schema:
+        type: string
     - $ref: ../components/parameters/requestId.yaml
   responses:
-    '204':
+    "204":
       description: Useful data deleted.
-    '401':
+    "401":
       $ref: ../components/responses/Unauthorized.yaml
-    '404':
+    "404":
       $ref: ../components/responses/NotFound.yaml

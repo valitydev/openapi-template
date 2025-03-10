@@ -1,6 +1,6 @@
 name: X-Request-ID
 in: header
-description: Уникальный идентификатор запроса к системе
+description: Unique identifier of the request to the system
 required: true
 schema:
   type: string

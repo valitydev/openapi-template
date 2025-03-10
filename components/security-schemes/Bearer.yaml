@@ -1,6 +1,6 @@
 description: >
-  Для аутентификации вызовов мы используем [JWT](https://jwt.io).
-  Cоответствующий ключ передается в заголовке.
+  For authentication of calls, we use [JWT](https://jwt.io).
+  The corresponding key is passed in the header.
 
   ```shell
     Authorization: Bearer {TOKENIZATION|PRIVATE_JWT}

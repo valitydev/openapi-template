@@ -1,8 +1,8 @@
-description: Переданы ошибочные данные
+description: Invalid data provided
 content:
   application/json:
     schema:
-      description: Ошибка в переданных данных
+      description: Error in the provided data
       type: object
       required:
         - code

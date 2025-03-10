@@ -1,4 +1,4 @@
-description: Несанкционированный доступ, использовались неверные учетные данные.
+description: Unauthorized access, invalid credentials were used.
 content:
   application/json:
     schema:

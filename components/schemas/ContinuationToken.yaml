@@ -1,0 +1,5 @@
+description: |
+  A token indicating that only part of the data has been returned in the response.
+  To get the next part, you need to call the service again with the same set of conditions and include this token.
+  If no token is present, you have received the last part of the data.
+type: string
