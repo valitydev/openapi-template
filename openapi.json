@@ -1,0 +1,405 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "--api-name API",
+    "description": "# --api-name API\n\nThis API provides an interface for managing resources within our system. All changes to resource states, including creation, modification, and deletion operations, are carried out through calls to the corresponding API methods. Any third-party applications interacting with our system are considered external client applications and must authenticate appropriately before accessing the API endpoints.\n\nWe provide a REST API over the HTTP protocol, the schema of which is described in accordance with the [OpenAPI 3][OAS3] standard. Return codes are described by the corresponding HTTP statuses. The platform accepts and returns JSON values in request and response bodies.\n\n[OAS3]: https://swagger.io/specification/\n\n## Content Format\n\nAny request to the API must be performed in UTF-8 encoding and with JSON content type specification.\n\n```\nContent-Type: application/json; charset=utf-8\n```\n\n## Requests\n\nAny API method call must be preceded by providing a unique request identifier for the platform client. This ID is passed in the corresponding header of each HTTP request:\n\n```\n    X-Request-ID: RQID-Z08G3EFE5DZ429VVO755BM19D51\n```\n\nWe require it to be able to track the lifecycle of any individual request in the system when auditing tasks or technical support inquiries demand it.\n\n### Idempotency\n\nWhen making certain requests, you can specify an _idempotency key_ – a unique set of characters to ensure idempotent request processing.\n\n```\n    X-Idempotency-Key: 881D:08BA\n```\n\nEven if the platform receives multiple requests to perform a specific operation with the same idempotency key value, this operation will be performed _no more than once_. Thus, in the case of temporary network accessibility issues, you can safely resend requests and be confident that operations like resource creation, data updates, or state changes will ultimately be executed only once.\n\nThe idempotency key should be a unique identifier for the specific operation you're attempting to perform. Make sure to use different idempotency keys for different operations.\n",
+    "termsOfService": "https://vality.dev/terms-of-use/",
+    "license": {
+      "name": "Apache 2.0",
+      "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://{subdomain}.vality.dev/{version}",
+      "variables": {
+        "subdomain": {
+          "default": "api"
+        },
+        "version": {
+          "enum": [
+            "v1"
+          ],
+          "default": "v1"
+        }
+      }
+    }
+  ],
+  "security": [
+    {
+      "bearer": []
+    }
+  ],
+  "paths": {
+    "/change_me": {
+      "get": {
+        "summary": "Get all useful data",
+        "operationId": "getAllUsefulData",
+        "tags": [
+          "change-me"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/requestId"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Useful data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/UsefulDataResponse"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          }
+        }
+      },
+      "post": {
+        "summary": "Create useful data",
+        "description": "Create useful data\n",
+        "operationId": "createUsefulData",
+        "tags": [
+          "change-me"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/requestId"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UsefulDataResponse"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Useful data created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UsefulDataResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          }
+        }
+      }
+    },
+    "/change_me/{id}": {
+      "get": {
+        "summary": "Get useful data",
+        "operationId": "getUsefulData",
+        "tags": [
+          "change-me"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "The unique identifier of the useful data",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/requestId"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Useful data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UsefulDataResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "description": "Data not found"
+          }
+        }
+      },
+      "put": {
+        "summary": "Update useful data",
+        "operationId": "putUsefulData",
+        "tags": [
+          "change-me"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "The unique identifier of the useful data",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/requestId"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UsefulDataChangeBody"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "UsefulData updated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UsefulDataResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "description": "Template not found"
+          },
+          "409": {
+            "$ref": "#/components/responses/Conflict"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete useful data",
+        "operationId": "deleteUsefulData",
+        "tags": [
+          "change-me"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "The unique identifier of the useful data",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/requestId"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Useful data deleted."
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearer": {
+        "description": "For authentication of calls, we use [JWT](https://jwt.io). The corresponding key is passed in the header.\n```shell\n  Authorization: Bearer {TOKENIZATION|PRIVATE_JWT}\n```\n",
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    },
+    "parameters": {
+      "requestId": {
+        "name": "X-Request-ID",
+        "in": "header",
+        "description": "Unique identifier of the request to the system",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "format": "uuid"
+        }
+      }
+    },
+    "schemas": {
+      "UsefulDataResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The unique identifier for the useful data."
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of the useful data."
+          },
+          "description": {
+            "type": "string",
+            "description": "A detailed description of the useful data."
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "description": "The date and time when the useful data was created."
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "description": "The date and time when the useful data was last updated."
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "createdAt",
+          "updatedAt"
+        ]
+      },
+      "Error": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "integer",
+            "minimum": 100,
+            "maximum": 600,
+            "description": "The HTTP status code."
+          },
+          "error": {
+            "type": "string",
+            "description": "A short, human-readable summary of the problem type. It SHOULD NOT change from occurrence to occurrence of the problem, except for purposes of localization."
+          }
+        }
+      },
+      "UsefulDataChangeBody": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The name of the useful data."
+          },
+          "description": {
+            "type": "string",
+            "description": "A detailed description of the useful data."
+          }
+        },
+        "required": [
+          "name"
+        ]
+      }
+    },
+    "responses": {
+      "BadRequest": {
+        "description": "Invalid data provided",
+        "content": {
+          "application/json": {
+            "schema": {
+              "description": "Error in the provided data",
+              "type": "object",
+              "required": [
+                "code"
+              ],
+              "properties": {
+                "code": {
+                  "type": "string",
+                  "enum": [
+                    "invalidRequest"
+                  ]
+                },
+                "message": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "Unauthorized": {
+        "description": "Unauthorized access, invalid credentials were used.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Error"
+            }
+          }
+        }
+      },
+      "Forbidden": {
+        "description": "Access forbidden.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Error"
+            }
+          }
+        }
+      },
+      "Conflict": {
+        "description": "Conflict.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Error"
+            }
+          }
+        }
+      },
+      "NotFound": {
+        "description": "Resource was not found",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Error"
+            }
+          }
+        }
+      }
+    }
+  }
+}
