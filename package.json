@@ -13,7 +13,7 @@
     "build-ng-lib": "vality-openapi generate ./web_deploy/openapi.json"
   },
   "devDependencies": {
-    "@redocly/cli": "^1.33.0",
+    "@redocly/cli": "^1.34.5",
     "@vality/openapi-generator-cli": "^3.0.2",
     "@vality/redocly-utils": "^0.3.0"
   }
